@@ -2,13 +2,9 @@
 cp ../ModSimPySolutions/chapters/chap*.ipynb .
 python remove_soln.py
 
-# run nbmake
-rm modsim.py chap*.py
-pytest --nbmake chap*.ipynb
-
 # add and commit
 git add chap*.ipynb chap*.py
-git commit -m "Updating chapters"
+git diff --cached --quiet || git commit -m "Updating chapters"
 
 # build the zip file
 cd ../..; zip -r ModSimPyNotebooks.zip \
@@ -20,6 +16,4 @@ mv ModSimPyNotebooks.zip ModSimPy
 cd ModSimPy
 
 git add ModSimPyNotebooks.zip
-git commit -m "Updating the notebook zip file"
-
-git push
+git diff --cached --quiet || git commit -m "Updating the notebook zip file"

@@ -2,7 +2,8 @@ name: ModSimPy
 channels:
   - conda-forge
 dependencies:
-  - python
+  # Core dependencies for users
+  - python=3.13
   - jupyter
   - numpy
   - matplotlib
@@ -16,6 +17,5 @@ dependencies:
   - pytables
   - pip
 
-# pip install pytest nbmake
-# pip install jupyter-book ghp-import
-# pip install pypandoc fastdoc
+# For development dependencies, use environment-dev.yml
+# Install with: mamba env create -f environment-dev.yml
